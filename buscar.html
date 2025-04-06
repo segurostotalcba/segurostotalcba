@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Cliente</title>
+    <link rel="stylesheet" href="./public/src/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">DG</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="index.html" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="buscar.html">Buscar datos</a>
+                    <li><a class="dropdown-item" href="cartera.html">Nuevo Cliente</a></li>
+                </ul>
+              </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+      <main class="container-fluid">
+        <div class="p-5 mt-5">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="fw-light">Buscar datos de carteras</h4>
+            </div>
+            <div class="card-body">
+             <form id="searchForm">
+              <div class="row">
+              <div class="col-md-4">
+                <input class="form-control me-2" type="text" placeholder="Nombre" aria-label="Nombre" aria-describedby="nombreHelp" id="txtNombre">
+                <div id="nombreHelp" class="form-text">Ingrese como minimo 3 caracteres o nombre y apellido completo sin coma</div>
+              </div>
+              <div class="col-md-2">
+                <input class="form-control me-2" type="text" placeholder="DNI" aria-label="DNI" aria-describedby="dniHelp" id="txtDNI">
+                <div id="dniHelp" class="form-text">Ingrese solo números</div>
+              </div>
+              <div class="col-md-2">
+                <input class="form-control me-2" type="text" placeholder="Patente" aria-label="Patente" id="txtPatente">
+              </div>
+              <div class="col-md-2">
+                <input class="form-control me-2" type="text" placeholder="Poliza" aria-label="Poliza" id="txtPoliza">
+              </div>
+              <div class="col-md-2">
+                <button type="button" class="btn btn-outline-success" id="btnBuscar">Buscar</button>
+                <button type="button" class="btn btn-outline-primary" id="btnClean">Limpiar</button>
+              </div>
+          
+            </div>
+             </form>
+            </div>
+            <div class="card-footer text-body-secondary">
+            <div id="error"></div>
+            <div id="showData" class="bd-example-snippet bd-code-snippet"  style="display: none;">
+              <div  class="bd-example-snippet bd-code-snippet">
+                <div class="bd-example m-0 border-0">
+                  <div class="accordion" id="accordionExample">
+                  <div id="accordionData"></div>
+                </div>
+                </div>
+               
+               </div>
+            </div>
+            </div>
+          </div>
+        </div>
+    
+        
+
+      </main>
+
+
+    <script src="./public/src/dist/js/bootstrap.bundle.min.js"></script> 
+    <script type="module" src="/public/src/js/searchCartera.mjs">
+         
+    </script>
+</body>
+</html>
