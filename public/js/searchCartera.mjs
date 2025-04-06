@@ -154,7 +154,7 @@ function showData(data) {
         // Unique ID for each accordion entry
         const collapseId = `collapse_${index}`;
         const headerId = `header_${index}`;
-        const urlClient = `cliente.html?idCliente=`
+        const urlClient = `cartera.html?idCliente=`
         // Accordion item
         const accordionItem = `
             <div class="accordion-item">
