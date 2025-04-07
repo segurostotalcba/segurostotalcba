@@ -86,35 +86,33 @@ function createEndpoint() {
 
 async function buscar() {
     clean();
-    const res = validar(); // Call validation function
+    const res = validar();
 
     if (!res && error.length > 0) {
         cargarError();
     } else {
-        // Get final endpoint
         const finalEndpoint = createEndpoint();
         console.log("Requesting:", finalEndpoint);
 
+        // Show the Bootstrap spinner
+        document.getElementById("spinner").style.display = "block";
+
         try {
-            // Fetch data properly
             const response = await fetch(finalEndpoint);
 
-            // Handle errors
             if (!response.ok) {
                 alert(` HTTP error! Status: ${response.status} \n\n No se encontraron datos de cliente :(`);
                 cleanForm();
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            // Read text response
             const data = await response.text();
-            console.log("Raw Response:", data); // Debugging log
+            console.log("Raw Response:", data);
 
-            // Try parsing JSON correctly
             let json;
             try {
                 json = JSON.parse(data);
-                showData(json)
+                showData(json);
             } catch (e) {
                 console.error("JSON parsing error:", e);
                 return;
@@ -124,6 +122,9 @@ async function buscar() {
 
         } catch (error) {
             console.error("Fetch Error:", error);
+        } finally {
+            // Hide the Bootstrap spinner
+            document.getElementById("spinner").style.display = "none";
         }
     }
 }
