@@ -112,7 +112,7 @@ async function formDatosContacto() {
         return {
             telefonoMovil: txtTelefonoMovil.value,
             telefonoFijo: txtTelefonoFijo.value,
-            Email: txtEmail.value,
+            email: txtEmail.value,
             perteneceA: dpdPerteneceA.value,
             idCliente : idCliente
         };
@@ -153,6 +153,25 @@ btnGuardarDatosContacto.addEventListener("click", async function () {
         alert("Error actualizando o guardando datos de contacto. Intente de nuevo. " + error);
     }
 });
+
+function loadFormDatosContacto(datosContacto) {
+    txtTelefonoMovil.value = datosContacto.telefonoMovil;
+    txtTelefonoFijo.value = datosContacto.telefonoFijo;
+    txtEmail.value = datosContacto.email;
+    dpdPerteneceA.value = datosContacto.perteneceA;
+   
+}
+
+document.addEventListener("click", function (event) {
+    if (event.target.closest(".edit-datosContacto")) {
+        const button = event.target.closest(".edit-datosContacto");
+        const datosContacto = JSON.parse(button.getAttribute("data-datosContacto")); // Get the data
+        console.log("Datos de contacto", datosContacto);
+        idDatosContacto = datosContacto._id
+        loadFormDatosContacto(datosContacto)
+    }
+});
+
 
 
 /*----------------------------------------------------DATOS DE POLIZA --------------------------------------------*/
