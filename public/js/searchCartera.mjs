@@ -8,6 +8,7 @@ const txtNombre = document.querySelector('#txtNombre');
 const txtDNI = document.querySelector('#txtDNI');
 const txtPatente = document.querySelector('#txtPatente');
 const txtPoliza = document.querySelector('#txtPoliza');
+const txtTelefonoMovil = document.querySelector('#txtTelefonoMovil');
 const lblerror = document.querySelector('#error');
 const btnBuscar = document.querySelector('#btnBuscar');
 const btnClean = document.querySelector('#btnClean');
@@ -28,7 +29,8 @@ function validar() {
         txtNombre.value.trim() === "" &&
         txtDNI.value.trim() === "" &&
         txtPatente.value.trim() === "" &&
-        txtPoliza.value.trim() === ""
+        txtPoliza.value.trim() === "" &&
+        txtTelefonoMovil.value.trim() === ""
     ) {
         error.push("Para poder buscar, ingrese información en alguno de los campos.");
         resultado = false;
@@ -78,6 +80,9 @@ function createEndpoint() {
     }
     if (txtPatente.value.trim() !== "") {
         params.push(`patente=${encodeURIComponent(txtPatente.value)}`);
+    }
+    if (txtTelefonoMovil.value.trim() !== "") {
+        params.push(`telefonoMovil=${encodeURIComponent(txtTelefonoMovil.value)}`);
     }
 
     // Join parameters correctly
